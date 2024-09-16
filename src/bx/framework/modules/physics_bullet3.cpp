@@ -1,9 +1,9 @@
-#include "bx/engine/modules/physics.hpp"
+#include "bx/framework/modules/physics_bullet3.hpp"
 
-#include "bx/engine/core/macros.hpp"
-#include "bx/engine/core/time.hpp"
-#include "bx/engine/containers/hash_map.hpp"
-#include "bx/engine/modules/graphics.hpp"
+#include <bx/core/macros.hpp>
+#include <bx/core/time.hpp>
+#include <bx/core/containers/hash_map.hpp>
+#include <bx/platform/graphics.hpp>
 
 #include <btBulletDynamicsCommon.h>
 #include <btBulletCollisionCommon.h>

@@ -21,7 +21,12 @@ set (INSTALL_EXTRA_LIBS OFF CACHE INTERNAL "")
 set (BUILD_UNIT_TESTS OFF CACHE INTERNAL "")
 set (INSTALL_CMAKE_FILES OFF CACHE INTERNAL "")
 
-add_subdirectory (bullet3)
-add_library (bullet3 STATIC "bullet3/src/btBulletCollisionAll.cpp" "bullet3/src/btBulletDynamicsAll.cpp")# "bullet3/src/btLinearMathAll.cpp")
+add_subdirectory (extern/bullet3)
+add_library (bullet3 STATIC "extern/bullet3/src/btBulletCollisionAll.cpp" "extern/bullet3/src/btBulletDynamicsAll.cpp")# "extern/bullet3/src/btLinearMathAll.cpp")
 target_link_libraries(bullet3 Bullet3Collision Bullet3Dynamics LinearMath)
-target_include_directories (bullet3 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/bullet3/src)
+target_include_directories (bullet3 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/extern/bullet3/src)
+
+add_library(bx-framework-bullet3 STATIC 
+    "src/bx/framework/modules/physics_bullet3.cpp")
+target_link_libraries(bx-framework-bullet3 PRIVATE bullet3)
+target_include_directories (bx-framework-bullet3 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
