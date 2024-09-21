@@ -2,7 +2,7 @@
 
 #include <bx/core/macros.hpp>
 #include <bx/core/time.hpp>
-#include <bx/core/containers/hash_map.hpp>
+#include <bx/containers/hash_map.hpp>
 #include <bx/platform/graphics.hpp>
 
 #include <btBulletDynamicsCommon.h>
